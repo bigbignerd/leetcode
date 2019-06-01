@@ -11,6 +11,9 @@ class Solution {
             '2' => 0,
         ];
         foreach ($nums as $k => $num) {
+			if (!isset ($record[$num])) {
+				throw new \Exception("wrong test data");
+			}
             $record[$num] += 1;
         }
         $index = 0;
