@@ -4,7 +4,7 @@ class Solution {
      * @param Integer[] $nums
      * @return NULL
      */
-    function sortColors(&$nums) {
+    public function sortColors(&$nums) {
         $record = [
             '0' => 0,
             '1' => 0,
@@ -23,12 +23,39 @@ class Solution {
             }
         }
     }
+	/**
+     * sort 3 ways
+     */
+	public function sortColorsV2(&$nums) {
+		$n = count($nums);
+		$zero = -1;
+		$i = 0;
+		$two = $n;
+		while ($i < $two) {
+			$value = $nums[$i];
+			if ($value == 1) {
+				$i++;
+			} else if ($value == 0) {
+				$this->swap($nums[$zero+1], $nums[$i]);
+				$zero++;
+				$i++;
+			} else {
+				$this->swap($nums[$two-1], $nums[$i]);
+				$two--;
+			}
+		}
+	}
+
+	private function swap(&$a, &$b) {
+		list($a, $b) = [$b, $a];
+	}
 }
 
 //test
 $nums = [2,0,2,1,1,0];
+$nums = [1,2,0];
 $s = new Solution();
-$s->sortColors($nums);
+$s->sortColorsV2($nums);
 var_dump($nums);
 
 
