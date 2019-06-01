@@ -18,10 +18,8 @@ class Solution {
         }
         $index = 0;
         foreach ($record as $number => $count) {
-            while ($count > 0) {
-                $nums[$index] = $number;
-                $count--;
-                $index++;
+            while ($count-- > 0) {
+                $nums[$index++] = $number;
             }
         }
     }
