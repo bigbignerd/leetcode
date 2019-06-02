@@ -22,6 +22,7 @@ class Solution
                 $j--;
             }
         }
+		throw new \Exception("invalide arguments");
     }
 	//用二分查找
 	public function twoSumV2($numbers, $target)
