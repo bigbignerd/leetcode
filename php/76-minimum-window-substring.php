@@ -3,9 +3,11 @@
 class Solution 
 {
     /**
-     * @param String $s
-     * @param String $t
-     * @return String
+     * 有字符串s，有字符串t
+     * 关键问题：滑动窗口内，如何判断是否包含t
+     * 策略：维护两个和, t的和滑动窗口内的s
+     * 判断：如果窗口满足>=和，说明找到了一个包含子串的窗口，保存起始索引，左侧继续右移一个
+     * 如果被右移的字符属于t中的字符，s要--
      */
     public function minWindow($s, $t) 
     {
