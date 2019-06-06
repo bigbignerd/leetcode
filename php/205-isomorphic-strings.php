@@ -14,7 +14,7 @@ class Solution
         for ($i=0; $i<$len; $i++) {
             $sc = $s[$i];
             $tc = $t[$i];
-            //make sure different key correspond different value
+            //make sure different key correspond to different value
             if (!isset($map[$sc]) && !in_array($tc, $map)) {
                 $map[$sc] = $tc;
             }
