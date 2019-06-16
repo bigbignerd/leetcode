@@ -24,14 +24,13 @@ void deleteNode(struct ListNode* node)
 	if (last) {
     	last->next = NULL;
 	}
-    free(node);
 }
 struct ListNode* create_node(int val)
 {
 	struct ListNode *head = (struct ListNode *)malloc(sizeof(struct ListNode));
-	struct ListNode *next = (struct ListNode *)malloc(sizeof(struct ListNode));
+	//struct ListNode *next = (struct ListNode *)malloc(sizeof(struct ListNode));
 	head->val = val;
-	head->next = next;
+	head->next = NULL;
 	return head;
 }
 
@@ -43,13 +42,16 @@ int main(int argc, char *argv[])
 	struct ListNode *head = create_node(a[0]);
 	struct ListNode *node = head;
 	struct ListNode* temp = NULL;
+    struct ListNode* del;
 	for (i=1; i<4; i++) {
 		temp = create_node(a[i]);
 		node->next = temp;
 		node = node->next;
+        if (i == 2)
+            del = temp;
 	}
-	deleteNode(node);
-	while (head) {
+	deleteNode(del);
+	while (head != NULL) {
 		printf("%d->", head->val);
 		temp = head;
 		head = head->next;
