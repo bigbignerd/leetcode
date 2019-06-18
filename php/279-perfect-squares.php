@@ -19,4 +19,20 @@ class Solution {
         $this->map[$n] = $min;
         return $min;
     }
+    //faster
+    function numSquares2($n) {
+        while($n % 4 ==0){
+            $n/=4;
+        }
+        if($n%8==7){
+            return 4;
+        }
+        for($i = 0; $i*$i <= $n; $i++){
+            $j = floor(sqrt($n - $i*$i));
+            if ($i*$i+$j*$j==$n){
+                return !!$i + !!$j;
+            }
+        }
+        return 3;        
+    }
 }
