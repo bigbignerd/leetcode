@@ -40,16 +40,17 @@ class Solution
     public function levelOrderBottom2($root) 
     {
         $this->traversal($root, 0);           
-        return array_reverse($this->data);
+        krsort($this->data);
+        return $this->data;
     }
     private function traversal($node, $level)
     {
         if (!$node) {
             return;
         }
-        $this->data[$level] = $node->val;
         $this->traversal($node->left, $level+1);
         $this->traversal($node->right, $level+1);
+        $this->data[$level] = $node->val;
     }
 }
 
