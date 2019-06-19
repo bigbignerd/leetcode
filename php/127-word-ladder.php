@@ -27,9 +27,6 @@ class Solution {
             $len = strlen($word);
             for ($i = 0; $i < $len; $i++) {
                 $dkey = substr($word, 0, $i) . '*' . substr($word, $i+1);
-                if (!isset($dict[$dkey])) {
-                    continue;
-                }
                 foreach ($dict[$dkey] as $w) {
                     if ($w == $endWord) {
                         return $step + 1;
