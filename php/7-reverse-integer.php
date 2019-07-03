@@ -19,6 +19,7 @@ class Solution {
             $right--;
         }
         $val = intval($s);
-        return ($val > 2147483647)? 0 : $flag * $val;
+        $maxInt32 = (1<<31) - 1;
+        return ($val > $maxInt32)? 0 : $flag * $val;
     }
 }
